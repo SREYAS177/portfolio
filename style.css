@@ -94,7 +94,7 @@ section{
   margin:30px auto;
   padding:40px;
   border-radius:20px;
-  width:80%;
+  width:90%;
   max-width:1000px;
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
   background:white;
@@ -117,24 +117,27 @@ section{
   align-items:center;
   justify-content:center;
   background:linear-gradient(135deg,#f9f0ff,#f0e6ff);
+  gap:30px;
 }
 
 .about-container{
   display:flex;
   flex-wrap:wrap;
-  align-items:center;
+  justify-content:center;
   gap:30px;
 }
 
 .profile-img{
   border-radius:50%;
   width:180px;
+  max-width:40%;
   border:4px solid #a07eff;
 }
 
 .about-text{
-  flex:1;
+  flex:1 1 250px; /* responsive width */
   text-align:left;
+  min-width:250px;
 }
 
 .highlight{
@@ -178,13 +181,13 @@ section{
 /* Project Card */
 .card{
   position:relative;
-  padding:25px;
+  padding:20px;
   border-radius:20px;
   background:linear-gradient(135deg,#fafafa,#f7f0ff,#f0e0ff,#fafafa);
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
   transition:0.3s;
   text-align:center;
-  min-height:260px;
+  min-height:auto; /* allow height to fit content */
 }
 
 .card:hover{
@@ -194,11 +197,13 @@ section{
 
 .card h3{
   color:#7a4eff;
+  margin-bottom:10px;
 }
 
 .card img{
   width:100%;
-  height:160px;
+  height:auto; /* responsive height */
+  max-height:200px; /* prevent huge images */
   object-fit:cover;
   border-radius:12px;
   margin-bottom:10px;
@@ -215,7 +220,7 @@ section{
   opacity:0;
   border-radius:20px;
   transition:0.4s;
-  pointer-events:none;   /* THIS FIXES THE BUTTON */
+  pointer-events:none;   /* fix buttons click */
 }
 
 /* Contact Section */
@@ -274,6 +279,14 @@ footer{
     flex-direction:column;
     text-align:center;
   }
+
+  .profile-img{
+    max-width:60%;
+  }
+
+  .about-text{
+    text-align:center;
+  }
 }
 
 @media screen and (max-width:500px){
@@ -291,7 +304,8 @@ footer{
     padding:10px 20px;
     font-size:14px;
   }
+
   .card-overlay{
-  pointer-events: none;
-}
+    pointer-events: none;
+  }
 }
